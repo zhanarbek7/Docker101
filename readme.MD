@@ -25,3 +25,13 @@ docker run --name my-node-app -p 3000:3000 -v $(pwd):/usr/src/app nodeapp
 **You should have the npm packages(modules installed as well)! because we added a bind mount from current directory to the directory in the docker**
 -v $(pwd):/usr/src/app 
 **means map changes from pwd (current directory to ) **
+
+### Running a container with an anonymous volume ###
+**Anonymous volume tells docker to not bind(map)specific directories and packages
+in the docker container**
+docker run --name my-node-app-6 -p 8000:3000 -v $(pwd):/usr/src/app -v /usr/src/app/node_modules nodeapp:v2
+
+### Proof: inside the container we have node_modules but no in the local directory ###
+**Enter the container, and list the directories**
+docker exec -it my-node-app-8 /bin/sh
+
