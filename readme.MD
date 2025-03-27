@@ -21,6 +21,7 @@ docker rmi <image_id_or_name>
 
 ### Run a docker image in a container, and sync changes from local directories and files
 docker run --name my-node-app -p 3000:3000 -v $(pwd):/usr/src/app nodeapp
-**allows to sync all of our stuff to the container**
+**Allows to sync all of our stuff to the container, you should stop and start the container**
+**You should have the npm packages(modules installed as well)! because we added a bind mount from current directory to the directory in the docker**
 -v $(pwd):/usr/src/app 
 **means map changes from pwd (current directory to ) **
